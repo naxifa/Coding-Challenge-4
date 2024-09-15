@@ -12,7 +12,20 @@ const inventory = [
 console.log(inventory); // An array of products in inventory
 
 
+// Task 2 
+
+let displayProductDetails = function (product) {
+    
+     // if statement to determine stockLevel
+
+    let stockLevel;
+
+    if (product.quantity <= product.lowStockLevel) 
+        stockLevel: "Low Stock";
+    else
+        stockLevel:"In Stock";
 
 
-
+console.log(`Product: ${product.name}, Price: $${product.price}, Quantity: ${product.quantity}, Stock: ${stockLevel}`);
+};
 
