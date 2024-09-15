@@ -51,7 +51,7 @@ function updateStock(product, unitsSold)
         console.log(`${product.name} is currently in stock`);}
 };
 
-inventory.forEach(product => {updateStock(product,34)}) // Sold 34 units of each product
+inventory.forEach(product => {updateStock(product,34)}) // Example: Sold 34 units of each product
 
 
 
@@ -67,7 +67,7 @@ function checkLowStock()
 ;}
 
 console.log("Low stock products:");
-checkLowStock(); 
+checkLowStock(); // Checking on low stock products
 
 
 
@@ -86,4 +86,21 @@ console.log(`Total inventory value is $${totalValue}`);
 console.log("Value of inventory at stock:"); // calling the function to calculate total inventory value at stock
 calculateInventoryValue();
 
+
+
+// Task 6 - Creating a Function to Process a Sale
+
+function processSale (productName, unitsSold)
+{
+    let product = inventory.find(item => item.name === productName); // For locating product by its name in the inventory
+
+    if (product) {
+      updateStock(product, unitsSold);} // Stock gets updated if product is found
+    else {
+        console.log(`Error: ${productName} is not in the inventory.`);} //Error message for if product is not found in inventory
+}
+
+// Example:
+processSale("Laptop", 15);
+processSale ("amartphone", 10); 
 
