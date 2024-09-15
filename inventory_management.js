@@ -1,7 +1,7 @@
 
 // Task 1 - Creating an Inventory Array of Product Objects 
 
-const inventory = [
+let inventory = [
 { name: "Laptop", price: 500, quantity: 47, lowStockLevel: 5 },
 { name: "Smartphone", price: 400, quantity: 96, lowStockLevel: 8 },
 { name: "Tablet", price: 350, quantity: 56, lowStockLevel: 5 },
@@ -9,23 +9,41 @@ const inventory = [
 { name: "Stylus", price: 50, quantity: 25, lowStockLevel: 2 }
 ];
 
-console.log(inventory); // An array of products in inventory
+// An array of products in inventory
+console.log(inventory); 
 
 
-// Task 2 
+
+// Task 2 - Creating a Function to Display Product Details
 
 let displayProductDetails = function (product) {
-    
-     // if statement to determine stockLevel
 
     let stockLevel;
+// if statement to determine stockLevel
 
     if (product.quantity <= product.lowStockLevel) 
-        stockLevel: "Low Stock";
+       stockLevel = "Low Stock";
     else
-        stockLevel:"In Stock";
-
+       stockLevel: "In Stock";
 
 console.log(`Product: ${product.name}, Price: $${product.price}, Quantity: ${product.quantity}, Stock: ${stockLevel}`);
+
+console.log(displayProductDetails(inventory(1)))
+    };
+
+
+// Task 3 - Creating a Function to Update Product Stock After Sales
+
+function updateStock(product, unitsSold)
+{
+    product.quantity -= unitsSold;
+    if (product.quantity <= 0)  // If total quantity less sales is 0 
+       console.log(`${product.name} is currently out of stock`);
+    else if (product.quatity <= product.lowStockLevel) // If total quantity less sales is between 0 and lowStockLevel
+       console.log(`${product.name} is currently low on stock`);
+
 };
+
+
+
 
