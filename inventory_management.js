@@ -13,6 +13,7 @@ let inventory = [
 console.log(inventory);
 
 
+
 // Task 2 - Creating a Function to Display Product Details
 
 let displayProductDetails = function (product) {
@@ -24,7 +25,6 @@ let displayProductDetails = function (product) {
        stockStatus = "Low Stock";
     else
        stockStatus = "In Stock";
-
 
 console.log(`Product: ${product.name}, Price: $${product.price}, Quantity: ${product.quantity}, Stock: ${stockStatus}`);
 };  // Logged the product details name,price,quantity,and stock status
@@ -39,6 +39,7 @@ inventory.forEach(product => displayProductDetails(product)); // Used forEach to
 function updateStock(product, unitsSold)
 {
     product.quantity -= unitsSold;
+
     if (product.quantity <= 0) 
         { product.quantity = 0    // If total quantity less sales is 0 
        console.log(`${product.name} is currently out of stock`);}
@@ -47,11 +48,11 @@ function updateStock(product, unitsSold)
        {console.log(`${product.name} is currently low on stock`);}
 
     else {   // If total quantity less sales is still above the lowStockLevel
-        console.log(`${product.name} is currently in stock`);
-    }
+        console.log(`${product.name} is currently in stock`);}
 };
 
 inventory.forEach(product => {updateStock(product,34)}) // Sold 34 units of each product
+
 
 
 // Task 4 - Creating a Function to Check Low Stock Products
@@ -65,7 +66,24 @@ function checkLowStock()
     } })
 ;}
 
+console.log("Low stock products:");
 checkLowStock(); 
 
 
-// Task 5 - 
+
+// Task 5 - Creating a Function to Calculate Total Inventory Value
+
+function calculateInventoryValue () 
+{
+    // Calculating the value of each product (price * quantity)
+   let totalValue = inventory.reduce((total,product) => total+ (product.price * product.quantity), 0);
+
+   // Logged the total inventory value
+console.log(`Total inventory value is $${totalValue}`);
+
+      return totalValue;  // returning total value of inventory
+}
+console.log("Value of inventory at stock:"); // calling the function to calculate total inventory value at stock
+calculateInventoryValue();
+
+
