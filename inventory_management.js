@@ -10,26 +10,28 @@ let inventory = [
 ];
 
 // An array of products in inventory
-console.log(inventory); 
-
+console.log(inventory);
 
 
 // Task 2 - Creating a Function to Display Product Details
 
 let displayProductDetails = function (product) {
 
-    let stockLevel;
+    let stockStatus;
 // if statement to determine stockLevel
 
     if (product.quantity <= product.lowStockLevel) 
-       stockLevel = "Low Stock";
+       stockStatus = "Low Stock";
     else
-       stockLevel: "In Stock";
+       stockStatus = "In Stock";
 
-console.log(`Product: ${product.name}, Price: $${product.price}, Quantity: ${product.quantity}, Stock: ${stockLevel}`);
 
-console.log(displayProductDetails(inventory(1)))
-    };
+console.log(`Product: ${product.name}, Price: $${product.price}, Quantity: ${product.quantity}, Stock: ${stockStatus}`);
+};  // Logged the product details name,price,quantity,and stock status
+
+inventory.forEach(product => displayProductDetails(product)); // Used forEach to loop over every product in the inventory array
+    // Called displayProductDetails for every product in the array
+
 
 
 // Task 3 - Creating a Function to Update Product Stock After Sales
@@ -37,13 +39,33 @@ console.log(displayProductDetails(inventory(1)))
 function updateStock(product, unitsSold)
 {
     product.quantity -= unitsSold;
-    if (product.quantity <= 0)  // If total quantity less sales is 0 
-       console.log(`${product.name} is currently out of stock`);
-    else if (product.quatity <= product.lowStockLevel) // If total quantity less sales is between 0 and lowStockLevel
-       console.log(`${product.name} is currently low on stock`);
+    if (product.quantity <= 0) 
+        { product.quantity = 0    // If total quantity less sales is 0 
+       console.log(`${product.name} is currently out of stock`);}
 
+    else if (product.quantity <= product.lowStockLevel) // If total quantity less sales is between 0 and lowStockLevel
+       {console.log(`${product.name} is currently low on stock`);}
+
+    else {   // If total quantity less sales is still above the lowStockLevel
+        console.log(`${product.name} is currently in stock`);
+    }
 };
 
+inventory.forEach(product => {updateStock(product,34)}) // Sold 34 units of each product
 
 
+// Task 4 - Creating a Function to Check Low Stock Products
 
+function checkLowStock()
+// Iterating over inventory array
+{
+    inventory.forEach (product => {if (product.quantity <= product.lowStockLevel) 
+    // Checking if product's quantity is less than or equal to the low stock level
+        { console.log (`${product.name} is low on stock, ${product.quantity} units left.`);
+    } })
+;}
+
+checkLowStock(); 
+
+
+// Task 5 - 
