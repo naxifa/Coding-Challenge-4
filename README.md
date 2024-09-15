@@ -1,3 +1,3 @@
 # Coding-Challenge-4
 
-This is a coding challenge that does inventory management. 
+This is a coding challenge for inventory management. 

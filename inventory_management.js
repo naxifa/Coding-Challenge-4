@@ -9,7 +9,7 @@ let inventory = [
 { name: "Stylus", price: 50, quantity: 25, lowStockLevel: 2 }
 ];
 
-// An array of products in inventory
+// Output will show array of products in inventory
 console.log(inventory);
 
 
